@@ -1,0 +1,22 @@
+{
+  "name": "@monorepo-semantic-release/github",
+  "description": "semantic-release plugin for monorepo to publish a GitHub release and comment on released Pull Requests/Issues",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/monorepo-semantic-release/github.git",
+  "author": "twinh <twinhuang@qq.com>",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@semantic-release/git": "^9.0.0"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "semantic-release": "^17.1.1"
+  }
+}
