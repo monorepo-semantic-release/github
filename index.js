@@ -40,8 +40,8 @@ async function success(pluginConfig, context) {
   return addChannelGitHub(pluginConfig, context);
 }
 
-function canDo({options: {version}, name, pkgs}) {
-  if (version !== 'fixed') {
+function canDo({options: {versionMode}, name, pkgs}) {
+  if (versionMode !== 'fixed') {
     return true;
   }
 
