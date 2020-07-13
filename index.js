@@ -21,7 +21,7 @@ async function publish(pluginConfig, context) {
 
   if (options.versionMode === 'fixed') {
     context.nextRelease.notes = Object.values(pkgContexts).reduce((notes, {name, nextRelease}) => {
-      notes.push(`# ${name} ${nextRelease.gitTag}\n\n${nextRelease.notes}`);
+      notes.push(`# ${name}\n\n${nextRelease.notes}`);
       return notes;
     }, []).join('\n\n');
   }
