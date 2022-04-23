@@ -1,3 +1,4 @@
+const micromatch = require('micromatch');
 const {verifyConditions, addChannel: addChannelGitHub, publish: publishGitHub, success: successGitHub, fail} = require('@semantic-release/github');
 
 async function addChannel(pluginConfig, context) {
@@ -5,6 +6,10 @@ async function addChannel(pluginConfig, context) {
 
   if (!canDo(context)) {
     logger.log('Skip rest add channel step on fixed version mode.');
+    return;
+  }
+
+  if (!isIncludes(pluginConfig, context)) {
     return;
   }
 
@@ -16,6 +21,10 @@ async function publish(pluginConfig, context) {
 
   if (!canDo(context)) {
     logger.log('Skip rest publish step on fixed version mode.');
+    return;
+  }
+
+  if (!isIncludes(pluginConfig, context)) {
     return;
   }
 
@@ -37,6 +46,10 @@ async function success(pluginConfig, context) {
     return;
   }
 
+  if (!isIncludes(pluginConfig, context)) {
+    return;
+  }
+
   return addChannelGitHub(pluginConfig, context);
 }
 
@@ -46,6 +59,14 @@ function canDo({options: {versionMode}, name, pkgs}) {
   }
 
   return name === Object.keys(pkgs)[0];
+}
+
+function isIncludes(pluginConfig, context) {
+  if (pluginConfig.includes && !micromatch.isMatch(context.name, pluginConfig.includes)) {
+    context.logger.log('Package name ' + context.name + ' does not match pattern: ' + pluginConfig.includes);
+    return false;
+  }
+  return true;
 }
 
 module.exports = {verifyConditions, addChannel, publish, success, fail};
