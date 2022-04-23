@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/monorepo-semantic-release/github/compare/v1.0.2...v1.1.0) (2022-04-23)
+
+
+### Features
+
+* add "includes" option to filter packages ([eb7eeb2](https://github.com/monorepo-semantic-release/github/commit/eb7eeb260d002f97c23349626de2e379fcfae1ee))
+
 ## [1.0.2](https://github.com/monorepo-semantic-release/github/compare/v1.0.1...v1.0.2) (2020-07-13)
 
 

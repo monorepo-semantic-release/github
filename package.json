@@ -1,7 +1,7 @@
 {
   "name": "@monorepo-semantic-release/github",
   "description": "semantic-release plugin for monorepo to publish a GitHub release and comment on released Pull Requests/Issues",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "main": "index.js",
   "repository": "https://github.com/monorepo-semantic-release/github.git",
   "author": "twinh <twinhuang@qq.com>",
